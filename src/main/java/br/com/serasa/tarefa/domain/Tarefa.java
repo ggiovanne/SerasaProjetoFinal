@@ -8,6 +8,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
 import br.com.serasa.tarefa.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,6 +23,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table
 public class Tarefa {
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

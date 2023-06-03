@@ -1,11 +1,12 @@
 package br.com.serasa.tarefa.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import br.com.serasa.tarefa.domain.Tarefa;
+import br.com.serasa.tarefa.enums.Status;
 import br.com.serasa.tarefa.exceptions.ObjetoNaoEncontradoException;
 import br.com.serasa.tarefa.repository.TarefaRepo;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,18 @@ public class TarefaService {
 		List<Tarefa> tarefas = repo.findAll();
 		
 		return tarefas;
+	}
+	
+	public List<Tarefa> getTarefasPorStatus(Status status) {
+		List<Tarefa> todasTarefas = repo.findAll();
+		ArrayList<Tarefa> tarefasFiltradas = new ArrayList<>();
+		
+		for (Tarefa tarefa : todasTarefas) {
+			if (tarefa.getStatus() == status) {
+				tarefasFiltradas.add(tarefa);
+			}
+		}
+		return tarefasFiltradas;
 	}
 	
 	public Tarefa novaTarefa(Tarefa tarefa) {
