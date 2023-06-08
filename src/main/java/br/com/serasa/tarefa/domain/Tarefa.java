@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import br.com.serasa.tarefa.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,7 +33,7 @@ public class Tarefa {
 	private String titulo;
 
 	@Column(length = 200, nullable = false)
-	private String decricao;
+	private String descricao;
 
 	@Enumerated(EnumType.ORDINAL)
 	private Status status;
@@ -58,12 +57,12 @@ public class Tarefa {
 		this.titulo = titulo;
 	}
 
-	public String getDecricao() {
-		return decricao;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setDecricao(String decricao) {
-		this.decricao = decricao;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	public Status getStatus() {
@@ -80,6 +79,17 @@ public class Tarefa {
 
 	public void setDataConclusao(LocalDateTime dataConclusao) {
 		this.dataConclusao = dataConclusao;
+	}
+
+	public Tarefa(Integer id, String titulo, String descricao, Status status, LocalDateTime dataConclusao) {
+		this.id = id;
+		this.titulo = titulo;
+		this.descricao = descricao;
+		this.status = status;
+		this.dataConclusao = dataConclusao;
+	}
+	
+	public Tarefa() {
 	}
 
 }
