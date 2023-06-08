@@ -15,7 +15,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class TarefaService {
 	
-	@Autowired
 	private TarefaRepo repo;
 	
 	public List<Tarefa> getTarefas() {
@@ -40,7 +39,7 @@ public class TarefaService {
 		return repo.save(tarefa);	
 	}
 	
-	public Tarefa buscarPorId (Integer id) {
+	public Tarefa buscarPorId (Long id) {
 		return repo.findById(id).orElseThrow(
 				() -> new ObjetoNaoEncontradoException("Não foi encontrado a tarefa buscada!"));
 		

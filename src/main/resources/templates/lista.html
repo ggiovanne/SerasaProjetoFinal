@@ -37,6 +37,7 @@
         <th scope="col">Descrição</th>
         <th scope="col">Status</th>
         <th scope="col">Data de finalização</th>
+        <th scope="col">#</th>
       </tr>
     </thead>
     <tbody>
@@ -45,7 +46,10 @@
         <td data-th-text="${tarefa.titulo}"></td>
         <td data-th-text="${tarefa.descricao}"></td>
         <td data-th-text="${tarefa.status}"></td>
-        <td data-th-text="${tarefa.dataConclusao}"></td>
+        <td data-th-text="${{tarefa.dataConclusao}}"></td>
+        <td> 
+        <a th:href="@{'/tarefa/editar/'+${tarefa.id}}">Editar</a>
+        </td>
 
       </tr>
      

@@ -1,6 +1,6 @@
 package br.com.serasa.tarefa.domain;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import org.springframework.format.annotation.DateTimeFormat;
 import br.com.serasa.tarefa.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,7 +28,7 @@ public class Tarefa {
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-	private Integer id;
+	private Long id;
 
 	@Column(length = 100, nullable = false)
 	private String titulo;
@@ -38,14 +39,15 @@ public class Tarefa {
 	@Enumerated(EnumType.ORDINAL)
 	private Status status;
 
+	@DateTimeFormat (pattern = "dd/MM/yyyy")
 	@Column(nullable = false)
-	private LocalDateTime dataConclusao;
+	private Date dataConclusao;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -73,15 +75,15 @@ public class Tarefa {
 		this.status = status;
 	}
 
-	public LocalDateTime getDataConclusao() {
+	public Date getDataConclusao() {
 		return dataConclusao;
 	}
 
-	public void setDataConclusao(LocalDateTime dataConclusao) {
+	public void setDataConclusao(Date dataConclusao) {
 		this.dataConclusao = dataConclusao;
 	}
 
-	public Tarefa(Integer id, String titulo, String descricao, Status status, LocalDateTime dataConclusao) {
+	public Tarefa(Long id, String titulo, String descricao, Status status, Date dataConclusao) {
 		this.id = id;
 		this.titulo = titulo;
 		this.descricao = descricao;

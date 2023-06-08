@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,21 +26,23 @@ public class TarefaController {
 
 	@PostMapping ("/salvar")
 	public String salvarTarefa(Tarefa tarefa) {
-		
 		//service.novaTarefa(tarefa);
 		tarefas.add(tarefa);
-		System.out.println("Eu sou gostoso");
+		System.out.println("Passou pelo endpoint salvar");
+		
 		return "redirect:/tarefa/lista";
 	
 	}
 	
 	@GetMapping ("/home")
 	public String home() {
+		System.out.println("Passou pelo endpoint home");
 		return "redirect:/tarefa/lista";
 	}
 	
 	@GetMapping ("/lista")
 	public ModelAndView lista() {
+		System.out.println("Passou pelo endpoint lista");
 		//List<Tarefa> tarefas = service.getTarefas();
 		ModelAndView md = new ModelAndView("lista");
 		md.addObject("tarefas", tarefas);
@@ -48,9 +51,19 @@ public class TarefaController {
 	
 	@GetMapping ("/criar")
 	public String formCadastroTarefa(Model model) {
-		System.out.println("sou gostoso");
+		System.out.println("Passou pelo endpoint criar");
 		model.addAttribute("tarefa", new Tarefa());
 		return "/tarefa-cadastro";
+	}
+	
+	@GetMapping ("/editar/{id}")
+	public ModelAndView editar(@PathVariable Long id) {
+		System.out.println("Passou pelo endpoint editar");
+		ModelAndView model = new ModelAndView();
+		
+		Tarefa tarefa = service.buscarPorId(id);
+		model.addObject("tarefa", tarefa);
+		return model;
 	}
 }
 

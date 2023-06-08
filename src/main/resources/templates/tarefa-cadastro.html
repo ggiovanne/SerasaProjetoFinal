@@ -18,7 +18,7 @@
 <body>
 	<nav class="navbar navbar-expand-lg bg-light">
 		<div class="container-fluid">
-oioioi
+		
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link active"
@@ -32,19 +32,15 @@ oioioi
 		</div>
 	</nav>
 
-
-
 	<form method="POST" action="/tarefa/salvar" th:object="${tarefa}">
 		<input type="hidden" th:value="${tarefa.id}" name="id" />
 		<div class="mb-3">
-			<label for="exampleInputEmail1" class="form-label">Nome da
-				tarefa</label> <input type="text" class="form-control" name="titulo"
+			<label for="exampleInputEmail1" class="form-label">Título</label> <input type="text" class="form-control" name="titulo"
 				th:value="${tarefa.titulo}">
 
 		</div>
 		<div class="mb-3">
-			<label for="exampleInputPassword1" class="form-label">Data de
-				conclusão</label> <input type="text" class="form-control"
+			<label for="exampleInputPassword1" class="form-label">Data de conclusão</label> <input type="text" class="form-control"
 				name="dataConclusao" th:value="${tarefa.dataConclusao}">
 		</div>
 		
@@ -54,8 +50,13 @@ oioioi
 		</div>
 		
 		<div class="mb-3">
-			<label for="exampleInputPassword1" class="form-label">Status</label> <input type="text" class="form-control"
-				name="status" th:value="${tarefa.status}">
+			<label for="exampleInputPassword1" class="form-label">Status</label>
+				
+				<select name=Status>
+					<option value="PENDENTE">PENDENTE</option>
+					<option value="EM_PROGRESSO">EM PROGRESSO</option>
+					<option value="CONCLUIDO">CONCLUÍDO</option>
+				</select>
 		</div>
 
 		<button type="submit" class="btn btn-primary">Cadastrar</button>
