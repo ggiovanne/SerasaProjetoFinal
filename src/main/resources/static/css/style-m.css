@@ -1,0 +1,166 @@
+/*1260px*/
+@media (max-width:1260px) {
+	.base-topo .logo {
+		margin-left: 30px;
+	}
+}
+
+/*1024px*/
+@media (max-width:1024px) {
+	.base-home {
+		padding: 0 2rem;
+	}
+
+	.menu-lateral {
+		max-width: 182px;
+	}
+
+	.centro {
+		padding-left: 177px;
+	}
+
+	.calendario .col-7.alt, .calendario .col-7-2.alt {
+		font-size: .6rem;
+		padding: 10px 5px;
+	}
+
+	.calendario .col-7, .calendario .col-7-2 {
+		font-size: .8rem;
+	}
+}
+
+/*991px*/
+@media (max-width:991px) {
+	.base-login {
+		padding: 0 1rem;
+		padding-top: 50px
+	}
+
+	.base-home {
+		padding: 0 1rem;
+	}
+
+	.menu-m {
+		display: block !important;
+		position: absolute;
+		z-index: 1;
+		top: 15px;
+		left: 20px;
+		font-size: 1.8rem;
+		color: #fff;
+	}
+
+	.base-topo .logo {
+		margin-left: 55px;
+	}
+
+	.menu-lateral {
+		display: none
+	}
+
+	.centro {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	/*690px*/
+	@media (max-width: 690px) {
+		.tabela-responsiva {
+			width: auto;
+			position: relative;
+			overflow-x: auto;
+			-webkit-overflow-scrolling: touch;
+			white-space: nowrap;
+		}
+
+		.tabela-responsiva .tabela.min tr th {
+			width: auto !important
+		}
+	}
+
+	/*600px*/
+	@media (max-width: 600px) {
+		.base-topo .logo img {
+			width: 100%;
+		}
+
+		.menu-lateral {
+			max-width: 297px;
+		}
+	}
+
+	/*650px*/
+	@media (max-width: 650px) {
+		.base-topo ul {
+			display: none;
+		}
+
+		.menu-lateral {
+			top: 59px;
+		}
+	}
+
+	/*480px*/
+	@media (max-width: 480px) {
+		.min-mob {
+			display: none !important
+		}
+
+		.base-topo .logo {
+			display: block;
+			margin: 0 auto;
+			width: 130px;
+		}
+
+		.base-topo ul li span small {
+			text-transform: uppercase;
+			margin-top: 7px;
+		}
+
+		.menu-lateral {
+			top: 54px;
+			max-width: 100%;
+		}
+
+		.base-home {
+			margin-top: 1rem;
+		}
+	}
+
+	/*400px*/
+	@media (max-width: 400px) {
+		.base-home {
+			margin-top: .5rem;
+		}
+
+		.menu-m.alt,
+		.menu-m {
+			top: 10px;
+		}
+
+		.dtr-data .btn {
+			width: 100%;
+			margin-bottom: 5px
+		}
+
+	}
+
+	@media (max-width: 390px) {
+		.base-topo .logo {
+			display: block;
+			margin: 0 auto;
+		}
+	}
+
+	@media (max-width: 380px) {
+		.base-topo .logo {
+			display: block;
+			margin: 0 auto;
+			width: 107px;
+		}
+
+		.menu-lateral {
+			top: 48px;
+		}
+	}
+}
