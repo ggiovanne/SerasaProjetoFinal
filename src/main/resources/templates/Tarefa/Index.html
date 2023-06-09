@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Lista de tarefa</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+
+
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <h5 style="position: relative;left: 198px;">Lista de Tarefa</h5>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="btn btn-primary" href="/tarefa/cadastrar" style="position: relative;left: 1489px;">Cadastro</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <table id="example" class="table table-striped" style="width:100%">
+    <thead style="position: relative;left: 54px;">
+      <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Descrição</th>
+        <th>Status</th>
+        <th>Data de finalização</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody style="position: relative;left: 54px;">
+      <tr th:each="tarefa: ${tarefa}">
+          <td th:text="${tarefa.id}"></td>
+          <td th:text="${tarefa.titulo}"></td>
+          <td th:text="${tarefa.descricao}"></td>
+          <td th:text="${tarefa.status}"></td>
+          <td th:text="${tarefa.dataConclusao}"></td>
+        <td>
+            <a th:href="@{tarefa/alterar/{id}(id=${tarefa.id})}" class="btn btn-primary">Editar</a>
+            <a th:href="@{tarefa/excluir/{id}(id=${tarefa.id})}" class="btn btn-danger">Excluir</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+<script>
+
+$(document).ready(function () {
+    $('#example').DataTable();
+});
+</script>
+</html>

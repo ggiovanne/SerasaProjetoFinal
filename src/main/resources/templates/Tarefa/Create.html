@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+
+<title>Cadastro de tarefa</title>
+</head>
+<body>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    vertical-align: middle;
+}
+.p-1 {
+    padding: .6rem!important;
+}
+.col-3 {
+    max-width: 25%;
+    ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+}
+</style>
+<div class="p-1">
+
+<form action="salvar" method="post" th:object="${tarefa}">
+	<div class="form" style="background: #fff;padding: 1rem 2rem;">
+			<div class="">
+				<div class="mb-3 col-3">
+					<label class="form-label">Título</label>
+					<input type="text" class="form-control" name="titulo" th:field="*{titulo}">
+
+				</div>
+				<div class="mb-3 col-3">
+					<label class="form-label">Data de conclusão</label>
+					<input type="date" class="form-control" name="dataConclusao" th:field="*{dataConclusao}">
+				</div>
+
+				<div class="mb-3 col-3">
+					<label class="form-label">Descrição</label>
+					<input type="text" class="form-control" name="descricao" th:field="*{descricao}">
+				</div>
+
+				<div class="mb-3 col-3">
+					<label class="form-label">Status</label>
+					<select name="status" class="form-control">
+						<option th:each="status : ${T(br.com.serasa.enums.Status).values()}" th:value="${status}" th:text="${status}"></option>
+					</select>
+				</div>
+			</div>
+
+			<div class="mb-3 col-3">
+				<button type="submit" class="btn btn-primary">salvar</button>
+			</div>
+	</div>
+</form>
+</div>
+</body>
+</html>
+
