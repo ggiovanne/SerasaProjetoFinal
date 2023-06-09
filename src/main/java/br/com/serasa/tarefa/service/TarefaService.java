@@ -23,12 +23,12 @@ public class TarefaService {
 		return tarefas;
 	}
 	
-	public List<Tarefa> getTarefasPorStatus(Status status) {
+	public List<Tarefa> getTarefasPorStatus(String status) {
 		List<Tarefa> todasTarefas = repo.findAll();
 		ArrayList<Tarefa> tarefasFiltradas = new ArrayList<>();
 		
 		for (Tarefa tarefa : todasTarefas) {
-			if (tarefa.getStatus() == status) {
+			if (tarefa.getStatus().equalsIgnoreCase(status)) {
 				tarefasFiltradas.add(tarefa);
 			}
 		}
@@ -53,5 +53,9 @@ public class TarefaService {
 		}
 		throw new ObjetoNaoEncontradoException("Não foi possível alterar dados pois essa tarefa não existe");
 		
+	}
+	
+	public void deletar(Long id) {
+		repo.deleteById(id);
 	}
 }
